@@ -20,10 +20,7 @@ app.post("/", function(req, res){
   const lastName = req.body.lastName;
   const email = req.body.email;
 
-  const listID = "c24ba00f01";
-  //const apiKey = "71c591e327ec340e6731b694d2d8a863-us7";
-
-
+  const listID = process.env.LISTID
 
   const data = {
     members: [
@@ -44,7 +41,7 @@ app.post("/", function(req, res){
 
   const options = {
     method: "POST",
-    auth: "Aditya:71c591e327ec340e6731b694d2d8a863-us7"
+    auth: "Aditya:" + process.env.APIKEY
   };
 
   const request = https.request(url, options, function(response){
